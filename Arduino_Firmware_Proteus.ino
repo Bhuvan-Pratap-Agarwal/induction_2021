@@ -209,31 +209,6 @@ void Stop()
 
 void despensing() //Despensing system
 {
-//   Servo motor;
-//   int p=9;        //digital pin connected
-//   void setup()
-//   {
-//     motor.attach(9);
-//     motor.write(180);
-//   }
-  
-//     int statusSensor = digitalRead(IRSensor); // reads the IR sensor input
-  
-//   if (statusSensor == 0)
-//      despensing();
-  
-//   void loop(){
-//     for(p=0;p<180;p++)
-//     {
-//       motor.write(p);
-//       delay(10);
-//     }
-//     for(p=180;p>=1;p--)
-//     {
-//       motor.write(p);
-//       delay(10);
-//     }
-
   rand = random(3);
   switch(rand)
   {
@@ -257,7 +232,7 @@ void despensing() //Despensing system
   }
   
   delay(2000);
-  motor4();
+  irsensordespensor();
 }
 
 void motor1()
@@ -374,10 +349,10 @@ void green_led()
 
 //==================================================================================  IR Sensor  ================================================================================
 
-void irsensor() //despensing gate way
+void irsensordespensor() //despensing gate way
 {
   int statusSensor = digitalRead(IRSensor); // reads the IR sensor input
   
   if (statusSensor == 0)
-     despensing();
+     motor4();
 }
