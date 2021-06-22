@@ -13,6 +13,12 @@
 
 
 //servo
+Servo myservo1;
+Servo myservo2;
+Servo myservo3;
+Servo myservo4;
+int pos = 0;
+
 
 
 //ir
@@ -90,7 +96,12 @@ void setup()
   pinMode (IRO, INPUT); // sensor pin INPUT for object detection 
 
   //Servo Motors
-
+  myservo.attach(2);
+  myservo.attach(3);
+  myservo.attach(4);
+  myservo.attach(12);
+  
+  
   //Buzzer
   digitalWrite(buz, OUTPUT);
 
@@ -223,32 +234,92 @@ void despensing() //Despensing system
 //       delay(10);
 //     }
 
-  rand = random(
-
-
-
+  rand = random(3);
+  switch(rand)
+  {
+    case 0: 
+      motor1();
+      motor2();
+      motor3();
+      break;
+    
+    case 1:
+      motor2();
+      motor1();
+      motor3();
+      break;
+    
+    case 2:
+      motor3();
+      motor2();
+      motor1();
+      break;
+  }
+  
+  delay(2000);
+  motor4();
 }
 
 void motor1()
 {
-
+  for (pos = 0; pos <= 180; pos += 1)
+  { // goes from 0 degrees to 180 degrees
+    // in steps of 1 degree
+    myservo.write(pos);              // tell servo to go to position in variable 'pos'
+    delay(3);                       // waits 15 ms for the servo to reach the position
+  }
+  for (pos = 180; pos >= 0; pos -= 1) 
+  { // goes from 180 degrees to 0 degrees
+    myservo.write(pos);              // tell servo to go to position in variable 'pos'
+    delay(3);                       // waits 15 ms for the servo to reach the position
+  }
 }
 
 void motor2()
 {
-
+    for (pos = 0; pos <= 180; pos += 1)
+  { // goes from 0 degrees to 180 degrees
+    // in steps of 1 degree
+    myservo.write(pos);              // tell servo to go to position in variable 'pos'
+    delay(15);                       // waits 15 ms for the servo to reach the position
+  }
+  for (pos = 180; pos >= 0; pos -= 1) 
+  { // goes from 180 degrees to 0 degrees
+    myservo.write(pos);              // tell servo to go to position in variable 'pos'
+    delay(15);                       // waits 15 ms for the servo to reach the position
+  }
 }
 
 void motor3()
 {
-
+    for (pos = 0; pos <= 180; pos += 1)
+  { // goes from 0 degrees to 180 degrees
+    // in steps of 1 degree
+    myservo.write(pos);              // tell servo to go to position in variable 'pos'
+    delay(15);                       // waits 15 ms for the servo to reach the position
+  }
+  for (pos = 180; pos >= 0; pos -= 1) 
+  { // goes from 180 degrees to 0 degrees
+    myservo.write(pos);              // tell servo to go to position in variable 'pos'
+    delay(15);                       // waits 15 ms for the servo to reach the position
+  }
 }
 
 void motor4()//main dispeinsing
 {
+    for (pos = 0; pos <= 180; pos += 1)
+  { // goes from 0 degrees to 180 degrees
+    // in steps of 1 degree
+    myservo.write(pos);              // tell servo to go to position in variable 'pos'
+    delay(15);                       // waits 15 ms for the servo to reach the position
+  }
+  for (pos = 180; pos >= 0; pos -= 1) 
+  { // goes from 180 degrees to 0 degrees
+    myservo.write(pos);              // tell servo to go to position in variable 'pos'
+    delay(15);                       // waits 15 ms for the servo to reach the position
+  }
+}
 
-}
-}
  
 
 //=====================================================================================  RTC  ===================================================================================
