@@ -256,7 +256,7 @@ void Stop()
 
 void despensing() //Despensing system
 {
-  num = random(3);
+  num = random(0, 3);
   switch(num)
   {
     case 0: 
