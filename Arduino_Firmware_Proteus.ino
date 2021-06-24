@@ -3,7 +3,6 @@
 #include <Servo.h>
 #include <Wire.h>
 #include <time.h>
-//#include <ds1307rtc.h>
 #include <SPI.h>
 #include <MFRC522.h>
 #include <SoftwareSerial.h>
@@ -70,27 +69,6 @@ void setup()
   pinMode(A0, INPUT); // initialize Left sensor as an input
   pinMode(A1, INPUT); // initialize Right sensor as an input
 
-   //RTC
-  //  while (!Serial); // for Leonardo/Micro/Zero
-//  Serial.begin(9600);
-//  if (! rtc.begin())
-//  {
-//    Serial.printlnln("Couldn't find RTC");
-//    while (1);
-//  }
-//
-//  if (! rtc.isrunning())
-//  {
-//    Serial.printlnln("RTC is NOT running!");
-//    // following line sets the RTC to the date & time this sketch was compiled
-////     rtc.adjust(DateTime(F(__DATE__), F(__TIME__)));
-//    rtc.adjust(DateTime(2021, 6, 22, 10, 24, 15));
-//    // This line sets the RTC with an explicit date & time, for example to set
-//    // January 21, 2014 at 3am you would call:
-//    // rtc.adjust(DateTime(2014, 1, 21, 3, 0, 0));
-//  } 
-//
-
 
   //IR Sensor
   pinMode (IRH, INPUT); // sensor pin INPUT for hand detection
@@ -125,49 +103,6 @@ void loop()
 //===================================================================================  Functions  ===============================================================================
 
 //=================================================================================  Line Follower  =============================================================================
-
-
-
-//void linefollower() //line follower
-//{
-//  Serial.println("Starting to move");
-//  int LEFT_SENSOR = digitalRead(A0);
-//  int RIGHT_SENSOR = digitalRead(A1);
-////  if(RIGHT_SENSOR==0 && LEFT_SENSOR==0) 
-////  {
-////    forward(); //FORWARD
-////  }
-////  else if(RIGHT_SENSOR==0 && LEFT_SENSOR==1) 
-////  {
-////    right(); //Move Right
-////  }
-////  else if(RIGHT_SENSOR==1 && LEFT_SENSOR==0) 
-////  {
-////    left(); //Move Left
-////  }
-////  else if(RIGHT_SENSOR==1 && LEFT_SENSOR==1) 
-////  {
-//
-//   forward();
-//   delay(10000);
-//   right();
-//   delay(5000);
-//   forward();
-//   delay(3000);
-//   left();
-//   delay(2000);
-//   Stop();  //STOP
-//   right();
-//   delay(5000);
-//   Stop();
-//   despensing(); // despensing or RIFD have to read RFID and choose
-//   delay(10000);
-//   left();
-//   delay(5000);
-//   Stop();
-//   forward();
-////  }
-//}  
 
 void linefollower() //line follower
 {
